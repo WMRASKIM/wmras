@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
+        maximum-scale=1.0, minimum-scale=1.0"
+        
+        <title></title>
+        <script language="JavaScript">
+            
+            function cal(){
+                var v1 = Number(document.getElementById("v1").value); 
+                var v2 = Number(document.getElementById("v2").value); 
+                var v3 = Number(document.getElementById("v3").value);
+                var v4 = Number(document.getElementById("v4").value);
+                var v5 = Number(document.getElementById("v5").value);
+                var v6 = Number(document.getElementById("v6").value);
+                var v7 = Number(document.getElementById("v7").value); 
+                var v8 = Number(document.getElementById("v8").value); 
+                var v9 = Number(document.getElementById("v9").value); 
+                var v10 = Number(document.getElementById("v10").value); 
+                var v11 = Number(document.getElementById("v11").value);
+                var v12 = Number(document.getElementById("v12").value); 
+                var v13 = Number(document.getElementById("v13").value);  
+
+                var n1 = Number(3.197);
+                var n2 = Number(3.081);
+                var n3 = Number(2.987);
+                var n4 = Number(2.695);
+                var n5 = Number(0.0004057);
+                var n6 = Number(0.03);
+                var n7 = Number(-4.35);
+                var n8 = Number(1.07);
+                var n9 = Number(-0.01);
+                var n10 = Number(-0.09);
+                
+                var res;
+                
+                res = v1*n1+v2*n2+v3*n3+v4*n4+v5*n5+v6*n6+v7*n7+v8*n8+v9*n9+v10*n10+v11*n11+v12*n12+v13*n13;               
+                document.getElementById("res").value = res;
+                
+                var t1;
+
+
+                if(res<2500){
+                document.getElementById("t1").value = "Not applicable";}
+                else if(res<25000){
+                document.getElementById("t1").value = "This company is reportable facility";}
+                else if(25000<res){
+                document.getElementById("t1").value = "This comapany is taxable facility";}
+
+                var tax = Number(5);
+
+                
+                var t3;
+                t3 = res*tax;
+                if(25000<res){
+                document.getElementById("t3").value = t3;}
+                else if(res<25000){
+                document.getElementById("t3").value = "Not applicable";}
+                    
+            }
+
+            function reset(){
+                document.getElementById("v1").value = "";
+                document.getElementById("v2").value = "";
+                document.getElementById("v3").value = "";
+                document.getElementById("v4").value = "";
+                document.getElementById("v5").value = "";
+                document.getElementById("v6").value = "";
+                document.getElementById("v7").value = "";
+                document.getElementById("v8").value = "";
+                document.getElementById("v9").value = "";
+                document.getElementById("v10").value = "";
+
+                document.getElementById("t1").value = "";
+                document.getElementById("t3").value = "";
+
+                document.getElementById("res").value = "";
+            }
+            function secure(){
+                var s1= "abcdef"; 
+                var s2 = document.getElementById("s2").value;
+                if(s2 == s1)document.getElementById("sec").style.display = 'block';
+                else alert("Wrong Passward")
+            }
+      
+        </script>
+    </head>
+    <body>
+        <input type="text" id="s2">
+        <input type="button" style="width: 130px; height: 30px; font-size: 80%;" value="Security" onclick="secure()"> 
+        <div id="sec" style=display:none;">
+            <p> <span style="border-radius: 15px 15px 15px 0; border: 5px solid #53D03A; padding: 0.5em 0.6em; color: #53D03A; font-size:100%;font-weight: bold;">
+            WMRAS Carbon Calculate Tools</span><br><br></p>
+
+            <img src="프레젠테이션1.jpg" width="90%" center>
+
+            <p style="font-size:100%; font-weight: bold;">
+            Fuel Emission<br></p>
+            <p style="border: 5px solid #C9C9C9; padding: 0.3em 1em;border-radius: 2px; font-size:100%;">
+            Gasoline(tonne): <br>
+            <input type="text" id="v1"><br>
+            Diesel(tonne): <br>
+            <input type="text" id="v2"><br>
+            LPG(tonne): <br>
+            <input type="text" id="v3"><br>
+            Nature Gas(tonne): <br>
+            <input type="text"   id="v4"></p><br><br>       
+            <p style="font-size:100%; font-weight: bold;">
+            Electrocity Emission<br></p>
+            <p style="border: 5px solid #C9C9C9; padding: 0.3em 1em;border-radius: 2px; font-size:100%;">
+            Electrocity(kWh): <br>
+            <input type="text" id="v5"></p><br><br>
+            <p style="font-size:100%;font-weight: bold;">
+            Waste Emission<br></p>
+            <p style="border: 5px solid #C9C9C9; padding: 0.3em 1em;border-radius: 2px; font-size:100%;">
+            General Waste(tonne): <br>
+            <input type="text" id="v6"><br>
+            Metal(tonne): <br>
+            <input type="text" id="v7"><br>
+            Plastic(tonne): <br>
+            <input type="text" id="v8"><br>
+            Glass(tonne): <br>
+            <input type="text" id="v9"><br>
+            Food(tonne): <br>
+            <input type="text" id="v10"><br><br>
+            <p> <span style="border-radius: 5em; padding: 0.6em 1em; background: #F9F9F9; box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  margin-left: 5px; font-size: 100%; font-weight: bold;">
+            Result(tonCo<sub>2</sub>e):  
+            <output type="text" id="res"></span></p>  
+            <br><br>
+            <input type="button" style="width: 130px; height: 30px; font-size: 80%;" value="CALCULATE" onclick="cal()">
+            <input type="button" style="width: 130px; height: 30px; font-size: 80%;" value="RESET" onclick="reset()">
+            </p><br><br>
+
+            <p style= "border: 5px solid #63b7ec; padding: 0.3em 1em;border-radius: 2px; font-weight: bold;">
+            Facility Type :
+            <output type="text" id="t1" ></output></p>
+            <br><br>
+
+            <p style= "border: 5px solid #63b7ec; padding: 0.3em 1em;border-radius: 2px; font-weight: bold;">
+            Carbon Tax(S$) :
+            <output type="text" id="t3"></output></p>
+            <br><br>
+        </div>
+    </body>
+</html>
